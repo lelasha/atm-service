@@ -48,13 +48,8 @@ public class CommonExceptionHandler {
 
 
     @ExceptionHandler(value = RuntimeException.class)
-    public ResponseEntity<ErrorResponse> runTimeExceptionHandle(RuntimeException exception) {
+    public void runTimeExceptionHandle(RuntimeException exception) {
         log.error("Runtime exception {}", exception.getMessage(), exception);
-
-        return buildErrorResponse(
-                ErrorCode.UNEXPECTED_ERROR,
-                exception.getMessage(),
-                HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(value = FeignException.class)
