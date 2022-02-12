@@ -21,11 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 // single endpoint test for demonstration
-@AutoConfigureMockMvc(addFilters = false)
-@WebMvcTest(controllers = UserValidationController.class,
-        useDefaultFilters = false,
-        includeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = UserValidationController.class)})
-@Import(CommonExceptionHandler.class)
+@WebMvcTest(controllers = UserValidationController.class)
 class UserValidationControllerTest {
     @MockBean
     private UserValidationService userValidationService;
